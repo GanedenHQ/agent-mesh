@@ -112,5 +112,5 @@ How it works → [docs/architecture.md](./docs/architecture.md)
 | Package           | Role                                                                                           |
 | ----------------- | ---------------------------------------------------------------------------------------------- |
 | `packages/mcp`    | The channel: MCP server with `mesh_send` / `mesh_reply` / `mesh_read_inbox` / `mesh_list_team` |
-| `packages/cli`    | `agent-mesh init` / `name` / `status`                                                          |
+| `packages/cli`    | `agent-mesh init` / `start` / `name` / `status` / `watch`                                      |
 | `packages/plugin` | Claude Code plugin that ships the channel                                                      |
