@@ -168,7 +168,10 @@ describe('Mailbox guardrails', () => {
   it('stops a thread that bounces between sessions too many times', async () => {
     const a = transport('alice', { limits });
     const b = transport('bob', { limits });
-    await a.start(() => undefined);
+    // Alice's session is live and may claim at any moment: count what reaches it,
+    // waiting in the mailbox or already delivered, not just what still waits.
+    const deliveredToAlice: string[] = [];
+    await a.start((m) => deliveredToAlice.push(m.id));
     await b.start(() => undefined);
 
     const m0 = await a.send({ to: 'bob', content: 'q' });
@@ -178,8 +181,10 @@ describe('Mailbox guardrails', () => {
     await expect(b.send({ to: 'alice', content: 'r', threadId: m0.threadId })).rejects.toThrow(
       /loop guard/,
     );
-    // The refused message never reached the mailbox.
-    expect((await a.readInbox()).map((m) => m.id)).toEqual([m1.id]);
+    // The refused message never reached alice: only m1 did.
+    await new Promise((r) => setTimeout(r, 60));
+    const reached = [...deliveredToAlice, ...(await a.readInbox()).map((m) => m.id)];
+    expect(reached).toEqual([m1.id]);
     // A new thread starts over.
     expect((await b.send({ to: 'alice', content: 'new' })).hopCount).toBe(0);
   });
