@@ -1,0 +1,13 @@
+{
+  "name": "agent-mesh",
+  "owner": {
+    "name": "agent-mesh"
+  },
+  "plugins": [
+    {
+      "name": "agent-mesh",
+      "source": "./packages/plugin",
+      "description": "Messaging between the Claude Code sessions on one machine (live channel + inbox)."
+    }
+  ]
+}

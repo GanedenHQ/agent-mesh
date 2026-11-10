@@ -1,0 +1,11 @@
+{
+  "description": "Hands new agent-mesh messages to Claude at session start and before each prompt, unless the channel already pushes them live.",
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/server/hook.js\"" }] }
+    ],
+    "UserPromptSubmit": [
+      { "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/server/hook.js\"" }] }
+    ]
+  }
+}

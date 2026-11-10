@@ -1,0 +1,37 @@
+{
+  "name": "agent-mesh",
+  "version": "0.4.0",
+  "private": true,
+  "description": "Let the Claude Code sessions on one machine message each other: @mention another session from any conversation.",
+  "workspaces": [
+    "packages/mcp",
+    "packages/cli",
+    "packages/plugin"
+  ],
+  "scripts": {
+    "build": "bun run --filter '*' build",
+    "build:binaries": "bash scripts/build-binaries.sh",
+    "build:plugin": "bun run --filter @agent-mesh/plugin build",
+    "lint": "bun run --filter '*' lint",
+    "test": "bun run --filter '*' test",
+    "channel:dev": "bun run --filter @agent-mesh/mcp dev"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/node": "^22.10.0",
+    "prettier": "^3.4.2"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  },
+  "packageManager": "bun@1.3.4",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GanedenHQ/agent-mesh.git"
+  },
+  "homepage": "https://github.com/GanedenHQ/agent-mesh#readme",
+  "bugs": {
+    "url": "https://github.com/GanedenHQ/agent-mesh/issues"
+  }
+}

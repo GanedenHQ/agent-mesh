@@ -1,0 +1,28 @@
+{
+  "name": "agent-mesh",
+  "displayName": "agent-mesh",
+  "version": "0.4.0",
+  "description": "Lets the Claude Code sessions on one machine message each other. Messages arrive live as channel events; reply with the mesh_reply tool.",
+  "keywords": [
+    "messaging",
+    "channel",
+    "multi-session",
+    "local"
+  ],
+  "mcpServers": {
+    "agent-mesh": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/server/channel.js"
+      ]
+    }
+  },
+  "channels": [
+    {
+      "server": "agent-mesh"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/GanedenHQ/agent-mesh",
+  "repository": "https://github.com/GanedenHQ/agent-mesh"
+}

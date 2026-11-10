@@ -1,0 +1,23 @@
+{
+  "name": "@agent-mesh/cli",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "agent-mesh": "src/index.ts"
+  },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --compile --outfile dist/agent-mesh",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  }
+}

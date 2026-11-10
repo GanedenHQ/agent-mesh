@@ -1,0 +1,20 @@
+node_modules/
+dist/
+*.log
+.env
+.env.local
+.DS_Store
+coverage/
+.turbo/
+.idea/
+.vscode/
+*.tsbuildinfo
+packages/plugin/server/
+bun.lockb
+
+# Local per-machine files.
+.agent-mesh
+.mcp.json
+
+# PR Lens writes its previews here. They are rebuilt on demand.
+.pr-lens/
