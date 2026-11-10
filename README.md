@@ -1,5 +1,8 @@
 # agent-mesh
 
+[![npm](https://img.shields.io/npm/v/agent-mesh-cli)](https://www.npmjs.com/package/agent-mesh-cli)
+[![license](https://img.shields.io/github/license/GanedenHQ/agent-mesh)](LICENSE)
+
 Let the Claude Code sessions on your machine talk to each other. From any session,
 `ask @web whether the login page still uses /v1` — the message reaches the `web`
 session, its Claude reads it and answers with `mesh_reply`.
